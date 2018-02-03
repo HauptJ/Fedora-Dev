@@ -1,6 +1,9 @@
 ---
   # TravisCI Docker test role
 
+- name: test repos tasks
+  import_tasks: roles/repos/tasks/main.yml
+
 - name: test libs / libraries tasks
   import_tasks: roles/libs/tasks/main.yml
 
