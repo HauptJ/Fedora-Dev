@@ -11,5 +11,5 @@
   become: yes
 
 - name: Install DigitalOcean Doctl
-  shell: snap install doctl
+  command: snap install doctl
   become: yes
