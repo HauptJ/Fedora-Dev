@@ -9,19 +9,20 @@
     line: 'group_package_types=optional'
 
 ### Broken - Does not work for some reason ###
-#- name: Add Atom repo
-#  yum_repository:
-#    name: atom
-#    description: Atom Editor
-#    baseurl: https://packagecloud.io/AtomEditor/atom/el/7/
-#    gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
-#    gpgcheck: yes
-
-- name: Add Atom repo gpgkey
-  shell: sudo rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
-
 - name: Add Atom repo
-  shell: sudo sh -c 'echo -e "[Atom]\nname=Atom Editor\nbaseurl=https://packagecloud.io/AtomEditor/atom/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/AtomEditor/atom/gpgkey" > /etc/yum.repos.d/atom.repo'
+  yum_repository:
+    name: Atom
+    description: Atom Editor
+    baseurl: https://packagecloud.io/AtomEditor/atom/el/7/$basearch
+    gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
+    gpgcheck: no
+    repo_gpgcheck: yes
+
+#- name: Add Atom repo gpgkey
+#  shell: sudo rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
+
+#- name: Add Atom repo
+#  shell: sudo sh -c 'echo -e "[Atom]\nname=Atom Editor\nbaseurl=https://packagecloud.io/AtomEditor/atom/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/AtomEditor/atom/gpgkey" > /etc/yum.repos.d/atom.repo'
 
 - name: display contents of repo related files
   debug: var=item
