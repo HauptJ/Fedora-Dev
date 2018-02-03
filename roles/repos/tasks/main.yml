@@ -32,3 +32,8 @@
     - "/etc/yum.conf"
     - "/etc/yum.repos.d/atom.repo"
   ignore_errors: yes
+
+- name: upgrade all packages
+  dnf:
+    name: "*"
+    state: latest

@@ -20,7 +20,7 @@
   become: no
 
 - name: Install CloudFlare GO API
-  command: go -u get github.com/cloudflare/cloudflare-go
+  command: go get -u github.com/cloudflare/cloudflare-go
   become: no
 
 - name: Install CloudFlare GO flarectl
