@@ -1,0 +1,15 @@
+---
+
+- name: Install OpenStack Python API
+  pip:
+    name: python-openstackclient
+  become: yes
+
+- name: Install DigitalOcean Python API
+  pip:
+    name: dopy
+  become: yes
+
+- name: Install DigitalOcean Doctl
+  shell: snap install doctl
+  become: yes

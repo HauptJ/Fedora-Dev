@@ -13,7 +13,7 @@
   yum_repository:
     name: Atom
     description: Atom Editor
-    baseurl: https://packagecloud.io/AtomEditor/atom/el/7/$basearch
+    baseurl: https://packagecloud.io/AtomEditor/atom/el/7/\$basearch
     gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
     gpgcheck: no
     repo_gpgcheck: yes

@@ -9,3 +9,6 @@
 
 - name: test tools tasks
   import_tasks: roles/tools/tasks/main.yml
+
+- name: test service_apis tasks
+  import_tasks: /roles/service_apis/tasks/main.yml

@@ -24,6 +24,12 @@
   dnf:
     name: atom
     state: latest
+  register: atom_result
+  ignore_errors: yes
+
+- name: atom installation status
+  debug:
+    var: atom_result
 
 - name: install the latest version of python-pip
   dnf:
