@@ -1,5 +1,13 @@
 ---
 
+- name: Get Optional Packages from group packages
+  lineinfile:
+    path: /etc/yum.conf
+    create: yes
+    state: present
+    regexp: '^group_package_types='
+    line: 'group_package_types=optional'
+
 - name: Add Atom repo
   yum_repository:
     name: atom
@@ -8,7 +16,8 @@
     gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
     gpgcheck: yes
 
-- name: display contents of repo files
+- name: display contents of repo related files
   debug: var=item
   with_file:
+    - "/etc/yum.conf"
     - "/etc/yum.repos.d/atom.repo"
