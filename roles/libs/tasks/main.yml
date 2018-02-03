@@ -1,0 +1,36 @@
+---
+
+- name: install the 'C Development Tools and Libraries' package group
+  dnf:
+    name: '@C Development Tools and Libraries'
+    state: present
+
+- name: install the 'Development Libraries' package group
+  dnf:
+    name: '@Development Libraries'
+    state: present
+
+- name: install the latest version of clang
+  dnf:
+    name: clang
+    state: latest
+
+- name: install the latest version of golang
+  dnf:
+    name: golang
+    state: latest
+
+- name: install the latest version of golang net dev
+  dnf:
+    name: golang-googlecode-net-devel
+    state: latest
+
+- name: install the latest version of python2
+  dnf:
+    name: python2
+    state: latest
+
+- name: install the latest version of python3
+  dnf:
+    name: python3
+    state: latest
