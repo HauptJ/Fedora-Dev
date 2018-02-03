@@ -10,6 +10,19 @@
     name: dopy
   become: yes
 
-- name: Install DigitalOcean Doctl
-  command: snap install doctl
+- name: Install CloudFlare Python API
+  pip:
+    name: cloudflare
   become: yes
+
+- name: Install DigitalOcean GO Doctl
+  command: go get -u github.com/digitalocean/doctl/cmd/doctl
+  become: no
+
+- name: Install CloudFlare GO API
+  command: go -u get github.com/cloudflare/cloudflare-go
+  become: no
+
+- name: Install CloudFlare GO flarectl
+  command: go get -u github.com/cloudflare/cloudflare-go/...
+  become: no
