@@ -15,10 +15,10 @@
     name: '@Cloud Management Tools'
     state: present
 
-- name: install the latest version of atom
-  dnf:
-    name: atom
-    state: latest
+#- name: install the latest version of atom
+#  dnf:
+#    name: atom
+#    state: latest
 
 - name: install the latest version of python-pip
   dnf:
