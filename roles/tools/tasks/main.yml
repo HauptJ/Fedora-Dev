@@ -28,6 +28,11 @@
     name: openssh-server
     state: latest
 
+- name: install the latest version of htop
+  dnf:
+    name: htop
+    state: latest
+
 ##### Web Browsers #####
 
 - name: install the latest version of chromium
