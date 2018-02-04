@@ -1,0 +1,10 @@
+# CSF variable settings. These can be placed in the global and / or hosts variable file
+
+# Testing mode for Travis-CI builds. It is used to skip tasks that do not work
+# in containerized environments
+
+test_mode: true
+
+docker_compose_ver: 1.18.0
+
+minikube_ver: 0.25.0

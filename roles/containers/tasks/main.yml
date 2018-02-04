@@ -20,19 +20,26 @@
     name: docker-ce
     state: latest
 
-# Commented out for testing
-#- name: Add {{ user }} user to docker group
-#  user: name={{ user }}
-#    groups=docker
-#    append=yes
+- name: Add {{ user }} user to docker group
+  user: name={{ user }}
+    groups=docker
+    append=yes
+  when: test_mode == false
 
-- name: Install Docker Compose 1.18.0
-  shell: curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+- name: Install Docker Compose {{ docker_compose_ver }}
+  shell: curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_ver }}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
   args:
     warn: false
 
-# Commented out for testing
-#- name: Install mikikube 0.25.0
-#  shell: curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.25.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
-#  vars:
-#    warn: false
+- name: Set Permissions on Docker Compose
+  file:
+    path: /usr/local/bin/docker-compose
+    mode: 0755
+
+- name: Download mikikube {{ minikube_ver }}
+  become: yes
+  become_user: root
+  get_url:
+    url: 'https://storage.googleapis.com/minikube/releases/v{{ minikube_ver }}/minikube-linux-amd64'
+    dest: '/usr/local/bin/'
+    mode: 0755

@@ -44,3 +44,8 @@
   dnf:
     name: google-chrome-stable
     state: latest
+
+- name: install the latest stable version of firefox
+  dnf:
+    name: firefox
+    state: latest
