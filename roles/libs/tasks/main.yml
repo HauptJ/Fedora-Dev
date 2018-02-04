@@ -43,5 +43,5 @@
 
 - name: install the latest version of texlive
   dnf:
-    name: texlive-scheme-medium
+    name: texlive-scheme-minimal
     state: latest
