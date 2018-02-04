@@ -20,17 +20,25 @@
 
 - name: Add Atom repo gpgkey
   shell: rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
-  become: yes
+  warn: no
 
 - name: Add Atom repo
   shell: sh -c 'echo -e "[Atom]\nname=Atom Editor\nbaseurl=https://packagecloud.io/AtomEditor/atom/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/AtomEditor/atom/gpgkey" > /etc/yum.repos.d/atom.repo'
-  become: yes
+
+- name: Install latest version of dnf-plugins-core
+  dnf:
+    name: dnf-plugins-core
+    state: latest
+
+- name: Install Docker repo
+  shell: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
 - name: display contents of repo related files
   debug: var=item
   with_file:
     - "/etc/yum.conf"
     - "/etc/yum.repos.d/atom.repo"
+    - "/etc/yum.repos.d/docker-ce.repo"
   ignore_errors: yes
 
 - name: upgrade all packages

@@ -40,3 +40,27 @@
   dnf:
     name: curl
     state: latest
+
+- name: Ensure old versions of Docker are not installed.
+  dnf:
+    name: '{{ item }}'
+    state: absent
+  with_items:
+    - docker
+    - docker-common
+    - docker-engine
+
+- name: install the latest stable version of docker-ce
+  dnf:
+    name: docker-ce
+    state: latest
+
+# Commented out for testing
+#- name: Add {{ user }} user to docker group
+#  user: name={{ user }}
+#    groups=docker
+#    append=yes
+
+- name: Install Docker Compose 1.18.0
+  shell: curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+  become: yes
