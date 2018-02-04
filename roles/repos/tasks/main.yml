@@ -1,4 +1,5 @@
 ---
+# Installs and configures DNF repositories
 
 - name: Get Optional Packages from group packages
   lineinfile:
@@ -43,6 +44,9 @@
   args:
     warn: false
 
+- name: Install Google Cloud repos
+  script: gcloud.sh
+
 - name: display contents of repo related files
   debug: var=item
   with_file:
@@ -50,6 +54,7 @@
     - "/etc/yum.repos.d/atom.repo"
     - "/etc/yum.repos.d/docker-ce.repo"
     - "/etc/yum.repos.d/google-chrome.repo"
+    - "/etc/yum.repos.d/google-cloud-sdk.repo"
   ignore_errors: yes
 
 - name: upgrade all packages

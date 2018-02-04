@@ -1,4 +1,5 @@
 ---
+# Installs cloud service tools and APIs
 
 - name: Install OpenStack Python API
   pip:
@@ -13,6 +14,11 @@
 - name: Install CloudFlare Python API
   pip:
     name: cloudflare
+  become: yes
+
+- name: Install ansible container
+  pip:
+    name: ansible-container[docker,k8s]
   become: yes
 
 - name: Install DigitalOcean GO Doctl

@@ -1,4 +1,5 @@
 ---
+# Installs compilers and libraries
 
 - name: install the 'C Development Tools and Libraries' package group
   dnf:
@@ -33,6 +34,11 @@
 - name: install the latest version of python3
   dnf:
     name: python3
+    state: latest
+
+- name: install the latest version of nodejs
+  dnf:
+    name: nodejs
     state: latest
 
 - name: install the latest version of texlive
