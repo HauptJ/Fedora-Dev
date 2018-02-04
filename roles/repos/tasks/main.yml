@@ -20,11 +20,13 @@
 
 - name: Add Atom repo gpgkey
   shell: rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
-  warn: no
+  args:
+    warn: false
 
 - name: Add Atom repo
   shell: sh -c 'echo -e "[Atom]\nname=Atom Editor\nbaseurl=https://packagecloud.io/AtomEditor/atom/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/AtomEditor/atom/gpgkey" > /etc/yum.repos.d/atom.repo'
-  warn: no
+  args:
+    warn: false
 
 - name: Install latest version of dnf-plugins-core
   dnf:
@@ -33,11 +35,13 @@
 
 - name: Install Docker repo
   shell: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-  warn: no
+  args:
+    warn: false
 
 - name: Install Google Chrome repo
   shell: sh -c 'echo -e "[google-chrome]\nname=google-chrome - \$basearch\nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub" > /etc/yum.repos.d/google-chrome.repo'
-  warn: no
+  args:
+    warn: false
 
 - name: display contents of repo related files
   debug: var=item

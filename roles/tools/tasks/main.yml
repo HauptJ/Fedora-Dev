@@ -41,6 +41,11 @@
     name: curl
     state: latest
 
+- name: install the latest version of wget
+  dnf:
+    name: wget
+    state: latest
+
 - name: install the latest version of openssh-server
   dnf:
     name: openssh-server
@@ -78,4 +83,5 @@
 
 - name: Install Docker Compose 1.18.0
   shell: curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-  warn: no
+  args:
+    warn: false
