@@ -34,3 +34,8 @@
   dnf:
     name: python3
     state: latest
+
+- name: install the latest version of texlive-scheme-full
+  dnf:
+    name: texlive-scheme-full
+    state: latest
