@@ -45,6 +45,7 @@
     - "/etc/yum.conf"
     - "/etc/yum.repos.d/atom.repo"
     - "/etc/yum.repos.d/docker-ce.repo"
+    - "/etc/yum.repos.d/google-chrome.repo"
   ignore_errors: yes
 
 - name: upgrade all packages
