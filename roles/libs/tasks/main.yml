@@ -35,7 +35,7 @@
     name: python3
     state: latest
 
-- name: install the latest version of texlive-scheme-full
+- name: install the latest version of texlive
   dnf:
-    name: texlive-scheme-full
+    name: texlive-scheme-medium
     state: latest
