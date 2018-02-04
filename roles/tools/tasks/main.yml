@@ -1,41 +1,17 @@
 ---
-# Installs compilers, text editors, web browsers, docker, and other usefull tools
+# Installs compilers web browsers, and system utilities
 
 - name: install the 'Development Tools' package group
   dnf:
     name: '@Development Tools'
     state: present
 
-- name: install the 'Editors' package group
-  dnf:
-    name: '@Editors'
-    state: present
-
-- name: install the 'Cloud Management Tools' package group
-  dnf:
-    name: '@Cloud Management Tools'
-    state: present
-
-- name: install the 'Vagrant with libvirt support' package group
-  dnf:
-    name: '@Vagrant with libvirt support'
-    state: present
-
-- name: install the latest version of atom
-  dnf:
-    name: atom
-    state: latest
-  register: atom_result
-  ignore_errors: yes
-
-- name: atom installation status
-  debug:
-    var: atom_result
-
 - name: install the latest version of python-pip
   dnf:
     name: python-pip
     state: latest
+
+##### System Utils #####
 
 - name: install the latest version of CURL
   dnf:
@@ -52,6 +28,8 @@
     name: openssh-server
     state: latest
 
+##### Web Browsers #####
+
 - name: install the latest version of chromium
   dnf:
     name: chromium
@@ -61,48 +39,3 @@
   dnf:
     name: google-chrome-stable
     state: latest
-
-- name: install the latest version of texstudio
-  dnf:
-    name: texstudio
-    state: latest
-
-- name: install the latest version of Ansible
-  dnf:
-    name: ansible
-    state: latest
-
-- name: install the latest version of kubectl
-  dnf:
-    name: kubectl
-    state: latest
-
-- name: Ensure old versions of Docker are not installed.
-  dnf:
-    name: '{{ item }}'
-    state: absent
-  with_items:
-    - docker
-    - docker-common
-    - docker-engine
-
-- name: install the latest stable version of docker-ce
-  dnf:
-    name: docker-ce
-    state: latest
-
-# Commented out for testing
-#- name: Add {{ user }} user to docker group
-#  user: name={{ user }}
-#    groups=docker
-#    append=yes
-
-- name: Install Docker Compose 1.18.0
-  shell: curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-  args:
-    warn: false
-
-- name: Install mikikube 0.25.0
-  shell: curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.25.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
-  vars:
-    warn: false

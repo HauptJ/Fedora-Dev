@@ -1,0 +1,17 @@
+---
+# Installs cloud management tools
+
+- name: install the 'Cloud Management Tools' package group
+  dnf:
+    name: '@Cloud Management Tools'
+    state: present
+
+- name: install the 'Vagrant with libvirt support' package group
+  dnf:
+    name: '@Vagrant with libvirt support'
+    state: present
+
+- name: install the latest version of Ansible
+  dnf:
+    name: ansible
+    state: latest
