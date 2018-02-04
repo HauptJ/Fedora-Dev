@@ -16,9 +16,14 @@
     name: cloudflare
   become: yes
 
-- name: Install ansible container
+- name: Install ansible container docker
   pip:
-    name: ansible-container[docker,k8s]
+    name: ansible-container[docker]
+  become: yes
+
+- name: Install ansible container k8s
+  pip:
+    name: ansible-container[k8s]
   become: yes
 
 - name: Install DigitalOcean GO Doctl

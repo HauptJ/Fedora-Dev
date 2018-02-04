@@ -13,8 +13,8 @@
 - name: test cloud tasks
   import_tasks: roles/cloud/tasks/main.yml
 
-- name: test editors tasks
-  import_tasks: roles/editors/tasks/main.yml
+#- name: test editors tasks
+#  import_tasks: roles/editors/tasks/main.yml
 
 - name: test containers tasks
   import_tasks: roles/containers/tasks/main.yml
