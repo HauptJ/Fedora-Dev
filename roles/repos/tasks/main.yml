@@ -9,43 +9,50 @@
     regexp: '^group_package_types='
     line: 'group_package_types=optional'
 
-### Broken - Does not work for some reason ###
-#- name: Add Atom repo
-#  yum_repository:
-#    name: Atom
-#    description: Atom Editor
-#    baseurl: https://packagecloud.io/AtomEditor/atom/el/7/\$basearch
-#    gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
-#    gpgcheck: no
-#    repo_gpgcheck: yes
-
-- name: Add Atom repo gpgkey
-  shell: rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
-  args:
-    warn: false
-
 - name: Add Atom repo
-  shell: sh -c 'echo -e "[Atom]\nname=Atom Editor\nbaseurl=https://packagecloud.io/AtomEditor/atom/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/AtomEditor/atom/gpgkey" > /etc/yum.repos.d/atom.repo'
-  args:
-    warn: false
+  yum_repository:
+    name: Atom
+    description: Atom Editor
+    baseurl: https://packagecloud.io/AtomEditor/atom/el/7/$basearch
+    gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
+    gpgcheck: no
+    repo_gpgcheck: yes
+    enabled: yes
+    state: present
 
-- name: Install latest version of dnf-plugins-core
-  dnf:
-    name: dnf-plugins-core
-    state: latest
+- name: Add Docker Stable repo
+  yum_repository:
+    name: docker-ce-stable
+    description: Docker CE Stable - $basearch
+    baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
+    gpgkey: https://download.docker.com/linux/fedora/gpg
+    gpgcheck: yes
+    enabled: yes
+    state: present
 
-- name: Install Docker repo
-  shell: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-  args:
-    warn: false
+- name: Add Google Chrome repo
+  yum_repository:
+    name: google-chrome
+    description: google-chrome - $basearch
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/$basearch
+    gpgkey: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    gpgcheck: yes
+    repo_gpgcheck: yes
+    enabled: yes
+    state: present
 
-- name: Install Google Chrome repo
-  shell: sh -c 'echo -e "[google-chrome]\nname=google-chrome - \$basearch\nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub" > /etc/yum.repos.d/google-chrome.repo'
-  args:
-    warn: false
-
-- name: Install Google Cloud repos
-  script: gcloud.sh
+- name: Add Google Cloud SDK
+  yum_repository:
+    name: google-cloud-sdk
+    description: Google Cloud SDK
+    baseurl: https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
+    gpgkey:
+      - https://packages.cloud.google.com/yum/doc/yum-key.gpg
+      - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    gpgcheck: yes
+    repo_gpgcheck: yes
+    enabled: yes
+    state: present
 
 - name: display contents of repo related files
   debug: var=item
