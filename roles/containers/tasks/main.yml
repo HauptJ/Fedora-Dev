@@ -26,20 +26,14 @@
     append=yes
   when: test_mode == false
 
-- name: Install Docker Compose {{ docker_compose_ver }}
-  shell: curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_ver }}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-  args:
-    warn: false
-
-- name: Set Permissions on Docker Compose
-  file:
-    path: /usr/local/bin/docker-compose
+- name: Download and install Docker Compose {{ docker_compose_ver }}
+  get_url:
+    url: 'https://github.com/docker/compose/releases/download/{{ docker_compose_ver }}/docker-compose-Linux-x86_64'
+    dest: '/usr/local/bin/'
     mode: 0755
 
-- name: Download mikikube {{ minikube_ver }}
-  become: yes
-  become_user: root
+- name: Download and install mikikube {{ minikube_ver }}
   get_url:
     url: 'https://storage.googleapis.com/minikube/releases/v{{ minikube_ver }}/minikube-linux-amd64'
     dest: '/usr/local/bin/'
-    mode: 0755
+    mode: 0775

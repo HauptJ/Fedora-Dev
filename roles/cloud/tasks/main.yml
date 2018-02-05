@@ -15,3 +15,8 @@
   dnf:
     name: ansible
     state: latest
+
+- name: install the latest version of google-cloud-sdk
+  dnf:
+    name: google-cloud-sdk
+    state: latest
