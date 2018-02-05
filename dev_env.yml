@@ -2,7 +2,7 @@
 - name: Make Fedora 27 Great Again!
   group: local
   strategy: debug
-  remote_user: josh
+  remote_user: testuser
 
   roles:
     - repos
@@ -11,3 +11,4 @@
     - { role: editors, become: yes }
     - { role: cloud, become: yes }
     - { role: containers, become: yes }
+    - service_apis
