@@ -10,8 +10,6 @@ services:
   - docker
 
 before_install:
-  - touch files/gcloud.sh
-  - cp roles/repos/files/gcloud.sh files/gcloud.sh
   - 'sudo docker pull ${distribution}:${version}'
   - 'sudo docker build --no-cache --rm --file=travis/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible travis'
 
