@@ -26,7 +26,7 @@ WORKDIR /home/testuser
 
 RUN echo 'testuser:testpass' | chpasswd
 
-RUN adduser testuser sudo
+RUN adduser testuser wheel
 
 USER testuser
 
