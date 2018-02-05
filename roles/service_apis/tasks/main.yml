@@ -28,12 +28,12 @@
 
 - name: Install DigitalOcean GO Doctl
   command: go get -u github.com/digitalocean/doctl/cmd/doctl
-  become: no
+  become_user: "{{ user }}"
 
 - name: Install CloudFlare GO API
   command: go get -u github.com/cloudflare/cloudflare-go
-  become: no
+  become_user: "{{ user }}"
 
 - name: Install CloudFlare GO flarectl
   command: go get -u github.com/cloudflare/cloudflare-go/...
-  become: no
+  become_user: "{{ user }}"

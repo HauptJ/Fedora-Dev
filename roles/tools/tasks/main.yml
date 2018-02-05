@@ -18,6 +18,16 @@
 
 ##### System Utils #####
 
+- name: install the latest version of sudo
+  dnf:
+    name: sudo
+    state: latest
+
+- name: install the latest version of zsh
+  dnf:
+    name: zsh
+    state: latest
+
 - name: install the latest version of CURL
   dnf:
     name: curl

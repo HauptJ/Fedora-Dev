@@ -1,0 +1,7 @@
+---
+# Tasks to create local user
+
+- name: create {{ user }}
+  user:
+    name: "{{ user }}"
+    groups: wheel
