@@ -3,6 +3,11 @@
   group: local
   strategy: debug
   remote_user: josh
-  become: yes
 
-  
+  roles:
+    - repos
+    - { role: libs, become: yes }
+    - { role: tools, become: yes }
+    - { role: editors, become: yes }
+    - { role: cloud, become: yes }
+    - { role: containers, become: yes }

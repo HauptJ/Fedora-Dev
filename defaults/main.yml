@@ -3,7 +3,7 @@
 # Testing mode for Travis-CI builds. It is used to skip tasks that do not work
 # in containerized environments
 
-test_mode: true
+user: testuser
 
 docker_compose_ver: 1.18.0
 

@@ -41,6 +41,11 @@
     name: nodejs
     state: latest
 
+- name: install the latest version of java-9-openjdk
+  dnf:
+    name: java-9-openjdk
+    state: latest
+
 - name: install the latest version of texlive
   dnf:
     name: texlive-scheme-minimal
