@@ -1,6 +1,6 @@
 ---
 - name: Make Fedora 27 Great Again!
-  group: local
+  hosts: local
   strategy: debug
   remote_user: testuser
 
