@@ -26,7 +26,8 @@ WORKDIR /home/testuser
 
 RUN echo 'testuser:testpass' | chpasswd
 
-RUN adduser testuser wheel
+RUN echo "testuser ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/testuser && \
+    chmod 0440 /etc/sudoers.d/testuser
 
 USER testuser
 
