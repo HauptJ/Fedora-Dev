@@ -24,6 +24,10 @@ RUN useradd --create-home --shell /bin/bash testuser
 
 WORKDIR /home/testuser
 
+RUN chown -R testuser:testuser /home/testuser
+
+RUN chmod -R 755 /home/testuser
+
 RUN echo 'testuser:testpass' | chpasswd
 
 RUN echo "testuser ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/testuser && \

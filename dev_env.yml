@@ -5,7 +5,7 @@
   remote_user: testuser
 
   roles:
-    - repos
+    - { role: repos, become: yes }
     - { role: libs, become: yes }
     - { role: tools, become: yes }
     - { role: editors, become: yes }
