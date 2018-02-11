@@ -2,7 +2,7 @@
 - name: Make Fedora 27 Great Again!
   hosts: vagrant
   strategy: debug
-  #remote_user: testuser
+  #remote_user: vagrant
 
   roles:
     - { role: user, become: yes }
