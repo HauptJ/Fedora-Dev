@@ -23,6 +23,11 @@
     name: wget
     state: latest
 
+- name: install the latest version of ImageMagick
+  dnf:
+    name: ImageMagick
+    state: latest
+
 - name: install the latest version of openssh-server
   dnf:
     name: openssh-server
@@ -31,6 +36,20 @@
 - name: install the latest version of htop
   dnf:
     name: htop
+    state: latest
+
+##### IRC CLient #####
+
+- name: install the latest version of hexchat
+  dnf:
+    name: hexchat
+    state: latest
+
+##### Torrent Client #####
+
+- name: install the latest version of qbittorrent
+  dnf:
+    name: qbittorrent
     state: latest
 
 ##### Web Browsers #####
