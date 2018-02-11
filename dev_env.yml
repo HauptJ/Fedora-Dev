@@ -5,7 +5,10 @@
   #remote_user: testuser
 
   roles:
+<<<<<<< HEAD
     - { role: user, become: yes }
+=======
+>>>>>>> 84b554468f103f0701d30fa1430adfae7c7672c4
     - { role: repos, become: yes }
     - { role: libs, become: yes }
     - { role: tools, become: yes }
