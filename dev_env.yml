@@ -5,11 +5,11 @@
   #remote_user: vagrant
 
   roles:
-    - { role: user, become: yes }
     - { role: repos, become: yes }
     - { role: libs, become: yes }
     - { role: tools, become: yes }
     - { role: editors, become: yes }
     - { role: cloud, become: yes }
     - { role: containers, become: yes }
+    - { role: user, become: yes }
     - service_apis
