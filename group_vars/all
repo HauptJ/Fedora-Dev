@@ -3,6 +3,11 @@
 user: josh
 user_password: testpass
 
+#tex live scheme or collection.
+# Anything above medium seems to fail due to timeout
+# Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
+tex_live: texlive-scheme-medium
+
 docker_compose_ver: 1.18.0
 
 minikube_ver: 0.25.0
