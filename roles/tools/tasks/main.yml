@@ -16,6 +16,11 @@
     name: maven
     state: latest
 
+- name: install the latest version of redhat-rpm-config
+  dnf:
+    name: redhat-rpm-config
+    state: latest
+
 ##### System Utils #####
 
 - name: install the latest version of sudo

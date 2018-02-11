@@ -4,4 +4,5 @@
 - name: create {{ user }}
   user:
     name: "{{ user }}"
+    password: "{{ user_password }}"
     groups: wheel
