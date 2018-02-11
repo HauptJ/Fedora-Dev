@@ -1,6 +1,12 @@
 ---
 # Installs and configures DNF repositories
 
+  # Requried for SE-Linux
+- name: install the latest version of libselinux-python
+  dnf:
+    name: libselinux-python
+    state: latest
+
 - name: Get Optional Packages from group packages
   lineinfile:
     path: /etc/yum.conf
