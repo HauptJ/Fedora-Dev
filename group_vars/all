@@ -1,12 +1,13 @@
 ---
 # Local user
 user: josh
-user_password: testpass
 
 #tex live scheme or collection.
-# Anything above medium seems to fail due to timeout
 # Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
-tex_live: texlive-scheme-medium
+tex_live: texlive-scheme-tetex
+
+# Slow system? Slow Internet? Large tex_live package? You might want to set a high number.
+tex_live_retires: 600
 
 docker_compose_ver: 1.18.0
 
