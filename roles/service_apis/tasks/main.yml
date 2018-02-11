@@ -5,31 +5,26 @@
   pip:
     name: python-openstackclient
   become: yes
-  become_user: "{{ user }}"
 
 - name: Install DigitalOcean Python API
   pip:
     name: dopy
   become: yes
-  become_user: "{{ user }}"
 
 - name: Install CloudFlare Python API
   pip:
     name: cloudflare
   become: yes
-  become_user: "{{ user }}"
 
 - name: Install ansible container docker
   pip:
     name: ansible-container[docker]
   become: yes
-  become_user: "{{ user }}"
 
 - name: Install ansible container k8s
   pip:
     name: ansible-container[k8s]
   become: yes
-  become_user: "{{ user }}"
 
 - name: Install DigitalOcean GO Doctl
   command: go get -u github.com/digitalocean/doctl/cmd/doctl
