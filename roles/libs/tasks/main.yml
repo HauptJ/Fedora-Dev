@@ -16,7 +16,7 @@
     name: '@Development Tools'
     state: present
 
-- name: install the latest version of {{ item }}
+- name: install the latest version of python
   dnf:
     name: "{{ item }}"
     state: latest
@@ -49,7 +49,7 @@
     state: latest
 # ----------
 
-- name: install the latest version of {{ item }}
+- name: install the latest version of golang
   dnf:
     name: "{{ item }}"
     state: latest
@@ -80,7 +80,16 @@
 # ----------
 
 # Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
-- name: install the latest version of texlive
+- name: install the latest version of {{ tex_live }}
   dnf:
     name: "{{ tex_live }}"
     state: latest
+  async: 1000
+  poll: 0
+  register: dnf_sleeper
+
+- name: check on {{ tex_live }} installation
+  async_status: jid={{ dnf_sleeper.ansible_job_id }}
+  register: job_result
+  until: job_result.finished
+  retries: 30
