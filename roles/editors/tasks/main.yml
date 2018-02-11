@@ -10,12 +10,13 @@
   dnf:
     name: atom
     state: latest
-  register: atom_result
-  ignore_errors: yes
 
-- name: atom installation status
-  debug:
-    var: atom_result
+sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | sudo python -c "import sys; main=lambda x:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('/opt')"
+
+- name: install the latest-ish version of calibre
+  dnf:
+    name: calibre
+    state: latest
 
 - name: install the latest version of texstudio
   dnf:

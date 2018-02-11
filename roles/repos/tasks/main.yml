@@ -1,7 +1,7 @@
 ---
 # Installs and configures DNF repositories
 
-  # Requried for SE-Linux
+  # Requried for Ansible to work with SE-Linux enabled
 - name: install the latest version of libselinux-python
   dnf:
     name: libselinux-python
@@ -59,16 +59,6 @@
     repo_gpgcheck: yes
     enabled: yes
     state: present
-
-- name: display contents of repo related files
-  debug: var=item
-  with_file:
-    - "/etc/yum.conf"
-    - "/etc/yum.repos.d/atom.repo"
-    - "/etc/yum.repos.d/docker-ce.repo"
-    - "/etc/yum.repos.d/google-chrome.repo"
-    - "/etc/yum.repos.d/google-cloud-sdk.repo"
-  ignore_errors: yes
 
 - name: upgrade all packages
   dnf:

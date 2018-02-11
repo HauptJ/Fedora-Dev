@@ -1,25 +1,5 @@
 ---
-# Installs compilers web browsers, and system utilities
-
-- name: install the 'Development Tools' package group
-  dnf:
-    name: '@Development Tools'
-    state: present
-
-- name: install the latest version of python-pip
-  dnf:
-    name: python-pip
-    state: latest
-
-- name: install the latest version of maven
-  dnf:
-    name: maven
-    state: latest
-
-- name: install the latest version of redhat-rpm-config
-  dnf:
-    name: redhat-rpm-config
-    state: latest
+# Installs web browsers, and system utilities
 
 ##### System Utils #####
 
