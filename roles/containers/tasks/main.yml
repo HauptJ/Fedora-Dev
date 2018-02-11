@@ -25,7 +25,7 @@
 - name: Download and install Docker Compose {{ docker_compose_ver }}
   get_url:
     url: 'https://github.com/docker/compose/releases/download/{{ docker_compose_ver }}/docker-compose-Linux-x86_64'
-    dest: '/usr/local/bin/'
+    dest: '/usr/local/bin/docker-compose'
     mode: 0755
 
 ##### Kubernetes #####
@@ -38,5 +38,5 @@
 - name: Download and install minikube {{ minikube_ver }}
   get_url:
     url: 'https://storage.googleapis.com/minikube/releases/v{{ minikube_ver }}/minikube-linux-amd64'
-    dest: '/usr/local/bin/'
+    dest: '/usr/local/bin/minikube'
     mode: 0775
