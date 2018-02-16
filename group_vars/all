@@ -4,7 +4,7 @@ user: josh
 
 #tex live scheme or collection.
 # Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
-tex_live: texlive-scheme-tetex
+tex_live: texlive-scheme-medium
 
 # Slow system? Slow Internet? Large tex_live package? You might want to set high numbers.
 update_retries: 600

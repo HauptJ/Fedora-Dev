@@ -38,8 +38,6 @@
     - boost-devel
     - libcurl
     - libcurl-devel
-    - udt
-    - udt-devel
     - openssl
     - openssl-devel
     - mbedtls

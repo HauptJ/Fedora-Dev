@@ -1,6 +1,6 @@
 ---
-- name: Make Fedora 27 Great Again!
-  hosts: vagrant
+- name: Lets try not to fill up the entire disk lol.
+  hosts: laptop
   strategy: debug
   #remote_user: vagrant
 
@@ -13,3 +13,4 @@
     - { role: containers, become: yes }
     - { role: user, become: yes }
     - service_apis
+    - { role: finalize, become yes }

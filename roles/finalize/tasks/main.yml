@@ -1,0 +1,13 @@
+---
+  # Final touches
+
+- name: Make sure all packages are the latest version
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Expire root password
+  command: chage -d 0 root
+
+- name: Reboot System in 1 minute
+  command: /sbin/shutdown -r +1

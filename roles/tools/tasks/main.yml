@@ -54,11 +54,6 @@
 
 ##### Web Browsers #####
 
-- name: install the latest version of chromium
-  dnf:
-    name: chromium
-    state: latest
-
 - name: install the latest stable version of Google chrome
   dnf:
     name: google-chrome-stable
