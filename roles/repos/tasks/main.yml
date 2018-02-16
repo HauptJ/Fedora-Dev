@@ -64,3 +64,13 @@
   dnf:
     name: "*"
     state: latest
+  async: 1000
+  poll: 0
+  register: dnf_sleeper_update
+
+# Source: http://docs.ansible.com/ansible/latest/playbooks_async.html
+- name: check on initial update
+  async_status: jid={{ dnf_sleeper_update.ansible_job_id }}
+  register: job_result_update
+  until: job_result_update.finished
+  retries: "{{ update_retries }}"

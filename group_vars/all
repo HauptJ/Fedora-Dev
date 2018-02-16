@@ -6,8 +6,9 @@ user: josh
 # Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
 tex_live: texlive-scheme-tetex
 
-# Slow system? Slow Internet? Large tex_live package? You might want to set a high number.
-tex_live_retires: 600
+# Slow system? Slow Internet? Large tex_live package? You might want to set high numbers.
+update_retries: 600
+tex_live_retries: 600
 
 docker_compose_ver: 1.18.0
 

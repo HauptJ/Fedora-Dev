@@ -96,4 +96,4 @@
   async_status: jid={{ dnf_sleeper.ansible_job_id }}
   register: job_result
   until: job_result.finished
-  retries: "{{ tex_live_retires }}"
+  retries: "{{ tex_live_retries }}"
