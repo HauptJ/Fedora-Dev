@@ -16,6 +16,11 @@
     name: ansible
     state: latest
 
+- name: install pywinrm for Ansible Windows provisoning
+  pip:
+    name: pywinrm
+  become: yes
+
 - name: install the latest version of google-cloud-sdk
   dnf:
     name: google-cloud-sdk
