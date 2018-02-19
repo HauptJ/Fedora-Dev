@@ -16,6 +16,11 @@
     name: cloudflare
   become: yes
 
+- name: Install the AWS CLI
+  pip:
+    name: awscli
+  become: yes
+
 - name: Install ansible container docker
   pip:
     name: ansible-container[docker]
