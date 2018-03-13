@@ -1,7 +1,8 @@
 ---
 - name: Lets try not to fill up the entire disk lol.
-  hosts: laptop
+  hosts: Fedora27WS
   strategy: debug
+  ignore_errors: yes
   #remote_user: vagrant
 
   roles:
