@@ -3,36 +3,6 @@
 
 ##### System Utils #####
 
-- name: install the latest version of sudo
-  dnf:
-    name: sudo
-    state: latest
-
-- name: install the latest version of zsh
-  dnf:
-    name: zsh
-    state: latest
-
-- name: install the latest version of CURL
-  dnf:
-    name: curl
-    state: latest
-
-- name: install the latest version of wget
-  dnf:
-    name: wget
-    state: latest
-
-- name: install the latest version of ImageMagick
-  dnf:
-    name: ImageMagick
-    state: latest
-
-- name: install the latest version of openssh-server
-  dnf:
-    name: openssh-server
-    state: latest
-
 - name: install the latest version of htop
   dnf:
     name: htop
@@ -57,9 +27,4 @@
 - name: install the latest stable version of Google chrome
   dnf:
     name: google-chrome-stable
-    state: latest
-
-- name: install the latest stable version of firefox
-  dnf:
-    name: firefox
     state: latest

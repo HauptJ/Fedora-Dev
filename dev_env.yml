@@ -1,8 +1,7 @@
 ---
-- name: Lets try not to fill up the entire disk lol.
-  hosts: laptop
+- name: Provision Laptop
+  hosts: all
   strategy: debug
-  #remote_user: vagrant
 
   roles:
     - { role: repos, become: yes }
@@ -10,7 +9,4 @@
     - { role: tools, become: yes }
     - { role: editors, become: yes }
     - { role: cloud, become: yes }
-    - { role: containers, become: yes }
-    - { role: user, become: yes }
-    - service_apis
     - { role: finalize, become yes }

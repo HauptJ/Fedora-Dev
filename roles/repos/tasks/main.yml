@@ -7,14 +7,6 @@
     name: libselinux-python
     state: latest
 
-- name: Get Optional Packages from group packages
-  lineinfile:
-    path: /etc/yum.conf
-    create: yes
-    state: present
-    regexp: '^group_package_types='
-    line: 'group_package_types=optional'
-
 - name: Add Atom repo
   yum_repository:
     name: atom
@@ -23,16 +15,6 @@
     gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
     gpgcheck: no
     repo_gpgcheck: yes
-    enabled: yes
-    state: present
-
-- name: Add Docker Stable repo
-  yum_repository:
-    name: docker-ce-stable
-    description: Docker CE Stable - $basearch
-    baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
-    gpgkey: https://download.docker.com/linux/fedora/gpg
-    gpgcheck: yes
     enabled: yes
     state: present
 

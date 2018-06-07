@@ -1,11 +1,6 @@
 ---
 # Installs text Editors
 
-- name: install the 'Editors' package group
-  dnf:
-    name: '@Editors'
-    state: present
-
 - name: install the latest version of atom
   dnf:
     name: atom
