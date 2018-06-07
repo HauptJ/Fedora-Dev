@@ -1,55 +1,6 @@
 ---
 # Installs compilers and libraries
 
-- name: install the 'C Development Tools and Libraries' package group
-  dnf:
-    name: '@C Development Tools and Libraries'
-    state: present
-
-- name: install the 'Development Libraries' package group
-  dnf:
-    name: '@Development Libraries'
-    state: present
-
-- name: install the 'Development Tools' package group
-  dnf:
-    name: '@Development Tools'
-    state: present
-
-- name: install the latest version of python
-  dnf:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - python2
-    - python2-devel
-    - python3
-    - python3-devel
-    - python-pip
-
-- name: install the latest and greatest of c++
-  dnf:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - gcc
-    - clang
-    - boost
-    - boost-devel
-    - libcurl
-    - libcurl-devel
-    - openssl
-    - openssl-devel
-    - mbedtls
-    - mbedtls-devel
-
-# Source: https://stackoverflow.com/questions/22073516/failed-to-install-python-cryptography-package-with-pip-and-setup-py
-- name: install the latest version of libffi-devel
-  dnf:
-    name: libffi-devel
-    state: latest
-# ----------
-
 - name: install the latest and greatest of golang
   dnf:
     name: "{{ item }}"
@@ -57,28 +8,6 @@
   with_items:
     - golang
     - golang-googlecode-net-devel
-
-- name: install the latest version of nodejs
-  dnf:
-    name: nodejs
-    state: latest
-
-- name: install the latest version of java-9-openjdk
-  dnf:
-    name: java-9-openjdk
-    state: latest
-
-- name: install the latest version of maven
-  dnf:
-    name: maven
-    state: latest
-
-# Source: https://github.com/jswhit/pyproj/issues/123
-- name: install the latest version of redhat-rpm-config
-  dnf:
-    name: redhat-rpm-config
-    state: latest
-# ----------
 
 # Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
 - name: install the latest version of {{ tex_live }}
