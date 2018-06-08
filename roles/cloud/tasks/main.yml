@@ -1,7 +1,0 @@
----
-# Installs cloud management tools
-
-- name: install the latest version of google-cloud-sdk
-  dnf:
-    name: google-cloud-sdk
-    state: latest

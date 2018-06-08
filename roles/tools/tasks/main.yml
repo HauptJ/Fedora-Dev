@@ -1,6 +1,17 @@
 ---
 # Installs web browsers, and system utilities
 
+- name: Add Google Chrome repo
+  yum_repository:
+    name: google-chrome
+    description: google-chrome - $basearch
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/$basearch
+    gpgkey: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    gpgcheck: yes
+    repo_gpgcheck: yes
+    enabled: yes
+    state: present
+
 ##### System Utils #####
 
 - name: install the latest version of htop

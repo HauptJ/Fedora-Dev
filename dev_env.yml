@@ -4,9 +4,10 @@
   strategy: debug
 
   roles:
-    - { role: repos, become: yes }
+    - { role: init, become: yes }
     - { role: libs, become: yes }
     - { role: tools, become: yes }
     - { role: editors, become: yes }
-    - { role: cloud, become: yes }
+    - { role: gcloud, become: yes }
+    - { role: docker-ce, become: yes }
     - { role: finalize, become yes }

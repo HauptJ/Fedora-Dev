@@ -7,7 +7,6 @@
     state: latest
   with_items:
     - golang
-    - golang-googlecode-net-devel
 
 # Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
 - name: install the latest version of {{ tex_live }}
