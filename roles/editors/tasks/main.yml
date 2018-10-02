@@ -26,3 +26,8 @@
   dnf:
     name: texstudio
     state: latest
+    
+- name: install the latest version of texmaker
+  dnf:
+    name: texmaker
+    state: latest
