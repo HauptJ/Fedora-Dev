@@ -4,14 +4,18 @@ user: josh
 
 #tex live scheme or collection.
 # Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
-tex_live: texlive-scheme-medium
+tex_live: texlive-scheme-full
 
 # Slow system? Slow Internet? Large tex_live package? You might want to set high numbers.
-update_retries: 600
-tex_live_retries: 600
+update_retries: 800
+tex_live_retries: 800
 
-docker_compose_ver: 1.18.0
+terraform_ver: 0.11.8
 
-minikube_ver: 0.25.0
+# Docker Settings
+docker_user: josh
+docker_compose_ver: 1.22.0
 
-terraform_ver: 0.11.3
+# Git Config
+git_user_name: Joshua Haupt
+git_user_email: joshua@hauptj.com

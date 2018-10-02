@@ -1,37 +1,18 @@
 ---
 # Installs web browsers, and system utilities
 
+- name: Add Google Chrome repo
+  yum_repository:
+    name: google-chrome
+    description: google-chrome - $basearch
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/$basearch
+    gpgkey: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    gpgcheck: yes
+    repo_gpgcheck: yes
+    enabled: yes
+    state: present
+
 ##### System Utils #####
-
-- name: install the latest version of sudo
-  dnf:
-    name: sudo
-    state: latest
-
-- name: install the latest version of zsh
-  dnf:
-    name: zsh
-    state: latest
-
-- name: install the latest version of CURL
-  dnf:
-    name: curl
-    state: latest
-
-- name: install the latest version of wget
-  dnf:
-    name: wget
-    state: latest
-
-- name: install the latest version of ImageMagick
-  dnf:
-    name: ImageMagick
-    state: latest
-
-- name: install the latest version of openssh-server
-  dnf:
-    name: openssh-server
-    state: latest
 
 - name: install the latest version of htop
   dnf:
@@ -57,9 +38,4 @@
 - name: install the latest stable version of Google chrome
   dnf:
     name: google-chrome-stable
-    state: latest
-
-- name: install the latest stable version of firefox
-  dnf:
-    name: firefox
     state: latest
