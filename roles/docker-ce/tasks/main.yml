@@ -1,11 +1,11 @@
 ---
   # Install Docker
 
-- name: Add Docker Nightly repo
+- name: Add Docker Stable repo
   yum_repository:
-    name: docker-ce-nightly
-    description: Docker CE Nightly - $basearch
-    baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/nightly
+    name: docker-ce-stable
+    description: Docker CE Stable - $basearch
+    baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
     gpgkey: https://download.docker.com/linux/fedora/gpg
     gpgcheck: yes
     enabled: yes
@@ -28,10 +28,11 @@
     groups: docker
     append: yes
 
-- name: Enable IPv6
-  copy:
-    src: files/daemon.json
-    dest: /etc/docker/daemon.json
+# Needs a static IPv6 prefix
+# - name: Enable IPv6
+#   copy:
+#     src: files/daemon.json
+#     dest: /etc/docker/daemon.json
 
 - name: Download and install Docker Compose {{ docker_compose_ver }}
   get_url:

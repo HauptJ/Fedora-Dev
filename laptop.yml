@@ -1,12 +1,13 @@
 ---
 - name: Provision Laptop
-  hosts: all
+  hosts: laptop
   strategy: debug
 
   roles:
     - { role: init, become: yes }
     - { role: libs, become: yes }
     - { role: tools, become: yes }
+    - { role: git, become: yes }
     - { role: editors, become: yes }
     - { role: gcloud, become: yes }
     - { role: docker-ce, become: yes }
