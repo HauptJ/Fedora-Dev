@@ -1,6 +1,7 @@
 ---
 - name: Provision Laptop
-  hosts: laptop
+  hosts: local
+  become: yes
   strategy: debug
 
   roles:
@@ -10,5 +11,7 @@
     - { role: git, become: yes }
     - { role: editors, become: yes }
     - { role: gcloud, become: yes }
-    - { role: docker-ce, become: yes }
-    - { role: finalize, become yes }
+    - { role: docker, become: yes }
+    - { role: packer, become: yes }
+    - { role: vagrant, become: yes }
+    - { role: finalize, become: yes }

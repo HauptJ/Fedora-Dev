@@ -1,0 +1,28 @@
+---
+
+- name: Install requried packages
+  dnf:
+    name:
+      - ansible
+      - qemu
+      - qemu-kvm
+      - qemu-img
+      - libvirt
+      - libvirt-python
+      - libvirt-client
+      - virt-install
+      - unzip
+      - curl
+      - python-pip
+    state: latest
+
+- name: Install s3cmd
+  pip:
+    name: s3cmd
+
+- name: Download and unarchive Packer
+  unarchive:
+    src: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_{{ packer_arch }}.zip
+    dest: "{{ packer_bin_path }}"
+    remote_src: true
+    creates: "{{ packer_bin_path }}/packer"

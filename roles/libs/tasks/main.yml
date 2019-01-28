@@ -3,23 +3,7 @@
 
 - name: install the latest and greatest of golang
   dnf:
-    name: "{{ item }}"
+    name: 
+      - golang
     state: latest
-  with_items:
-    - golang
 
-# Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
-- name: install the latest version of {{ tex_live }}
-  dnf:
-    name: "{{ tex_live }}"
-    state: latest
-  async: 1000
-  poll: 0
-  register: dnf_sleeper
-
-# Source: http://docs.ansible.com/ansible/latest/playbooks_async.html
-- name: check on {{ tex_live }} installation
-  async_status: jid={{ dnf_sleeper.ansible_job_id }}
-  register: job_result
-  until: job_result.finished
-  retries: "{{ tex_live_retries }}"

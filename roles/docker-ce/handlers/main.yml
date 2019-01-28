@@ -1,7 +1,0 @@
----
-# Handler to handle Docker
-
-- name: restart Docker
-  service:
-    name: docker
-    state: restarted

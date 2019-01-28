@@ -1,0 +1,14 @@
+---
+
+system_user: "jhaupt"
+
+# Docker
+docker_user: "{{ system_user }}"
+docker_compose_ver: 1.23.2
+
+# Git Config
+git_user_name: "Joshua Haupt"
+git_user_email: "joshua@hauptj.com"
+
+# Vagrant
+vagrant_ver: "2.2.3"
