@@ -1,0 +1,20 @@
+---
+
+- name: Make sure Vagrant and libvirt dependencies are installed
+  dnf:
+    name:
+      - qemu
+      - libvirt
+      - libvirt-devel
+      - libvirt-python
+      - libvirt-client
+      - ruby-devel
+      - gcc
+      - qemu-kvm
+      - libguestfs-tools-c
+      - vagrant
+      - vagrant-libvirt
+      - virt-manager
+      - virt-viewer
+      - bridge-utils
+    state: latest

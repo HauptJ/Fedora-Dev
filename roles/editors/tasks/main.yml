@@ -11,23 +11,20 @@
     repo_gpgcheck: yes
     enabled: yes
     state: present
-
-- name: install the latest version of atom
-  dnf:
-    name: atom
-    state: latest
-
-- name: install the latest-ish version of calibre
-  dnf:
-    name: calibre
-    state: latest
-
-- name: install the latest version of texstudio
-  dnf:
-    name: texstudio
-    state: latest
     
-- name: install the latest version of texmaker
+- name: Add VSC repo
+  yum_repository:
+    name: code
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode/
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: yes
+    enabled: yes
+    state: present
+
+- name: install the latest versions of Atom and VSC
   dnf:
-    name: texmaker
+    name: 
+      - atom
+      - code
     state: latest
