@@ -1,0 +1,7 @@
+
+- name: Download and unarchive Vault
+  unarchive:
+    src: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_linux_{{ vault_arch }}.zip
+    dest: "{{ vault_bin_path }}"
+    remote_src: true
+    creates: "{{ vault_bin_path }}/vault"

@@ -1,0 +1,5 @@
+---
+
+vault_version: "1.0.2"
+vault_arch: "amd64"
+vault_bin_path: /usr/local/bin

@@ -5,13 +5,47 @@
   strategy: debug
 
   roles:
-    - { role: init, become: yes }
-    - { role: libs, become: yes }
-    - { role: tools, become: yes }
-    - { role: git, become: yes }
-    - { role: editors, become: yes }
-    - { role: gcloud, become: yes }
-    - { role: docker, become: yes }
-    - { role: packer, become: yes }
-    - { role: vagrant, become: yes }
-    - { role: finalize, become: yes }
+
+    - role: init
+      become: yes
+      tags: init
+
+    - role: libs
+      become: yes
+      tags: libs
+
+    - role: tools
+      become: yes
+      tags: tools
+
+    - role: git 
+      become: yes
+      tags: git
+
+    - role: editors
+      become: yes
+      tags: editors
+
+    - role: gcloud
+      become: yes
+      tags: gcloud
+
+    - role: docker
+      become: yes
+      tags: docker
+
+    - role: packer
+      become: yes
+      tags: packer
+
+    - role: vagrant 
+      become: yes
+      tags: vagrant
+
+    - role: vault
+      become: yes
+      tags: vault
+
+    - role: finalize
+      become: yes
+      tags: finalize

@@ -1,22 +1,20 @@
 ---
 
-- name: Make sure Vagrant libvirt dependencies are installed
+- name: Make sure Vagrant and libvirt dependencies are installed
   dnf:
     name:
       - qemu
       - libvirt
       - libvirt-devel
+      - libvirt-python
+      - libvirt-client
       - ruby-devel
       - gcc
       - qemu-kvm
       - libguestfs-tools-c
+      - vagrant
+      - vagrant-libvirt
+      - virt-manager
+      - virt-viewer
+      - bridge-utils
     state: latest
-
-- name: Install {{ vagrant_ver }} of Vagrant
-  dnf:
-    name: 'https://releases.hashicorp.com/vagrant/{{ vagrant_ver }}/vagrant_{{ vagrant_ver }}_x86_64.rpm'
-    state: present
-
-- name: Install Vagrant libvirt plugin
-  shell: 'CONFIGURE_ARGS="with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib64" vagrant plugin install vagrant-libvirt'
-  become_user: "{{ docker_user }}"
