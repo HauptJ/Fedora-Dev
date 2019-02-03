@@ -25,7 +25,11 @@
     - role: editors
       become: yes
       tags: editors
-
+    
+    - role: tex
+      become: yes
+      tags: tex
+      
     - role: gcloud
       become: yes
       tags: gcloud

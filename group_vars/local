@@ -22,3 +22,12 @@ packer_bin_path: /usr/local/bin
 vault_version: "1.0.2"
 vault_arch: "amd64"
 vault_bin_path: /usr/local/bin
+
+#tex live scheme or collection.
+# Source: https://unix.stackexchange.com/questions/199638/how-to-fully-install-latex-in-fedora
+tex_live: texlive-scheme-full
+
+# Slow system? Slow Internet? Large tex_live package? You might want to set high numbers.
+update_retries: 800
+tex_live_retries: 800
+
