@@ -50,6 +50,10 @@
       become: yes
       tags: vault
 
+    - role: nvidia
+      become: yes
+      tags: nvidia
+
     - role: finalize
       become: yes
       tags: finalize
