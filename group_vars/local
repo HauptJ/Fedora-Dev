@@ -1,6 +1,7 @@
 ---
 
 system_user: "jhaupt"
+fedora_ver: 29
 
 # Docker
 docker_user: "{{ system_user }}"
