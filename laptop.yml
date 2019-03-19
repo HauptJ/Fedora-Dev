@@ -54,6 +54,14 @@
       become: yes
       tags: nvidia
 
+    - role: mac-wifi
+      become: yes
+      tags: mac-wifi
+
+    - role: virtualbox
+      become: yes
+      tags: virtualbox
+
     - role: finalize
       become: yes
       tags: finalize
