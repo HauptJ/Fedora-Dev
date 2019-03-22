@@ -54,6 +54,10 @@
       become: yes
       tags: nvidia
 
+    - role: terraform
+      become: yes
+      tags: terraform
+
     - role: mac-wifi
       become: yes
       tags: mac-wifi
