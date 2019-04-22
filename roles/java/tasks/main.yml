@@ -11,3 +11,9 @@
   dnf:
     name: eclipse
     state: latest
+
+- name: Install Java Utilities
+  dnf:
+    name: 
+      - ant
+    state: latest
