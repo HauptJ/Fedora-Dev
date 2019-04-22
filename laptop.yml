@@ -58,6 +58,10 @@
       become: yes
       tags: terraform
 
+    - role: java
+      become: yes
+      tags: java
+
     - role: mac-wifi
       become: yes
       tags: mac-wifi
