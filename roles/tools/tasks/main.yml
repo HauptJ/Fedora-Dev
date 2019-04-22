@@ -39,3 +39,23 @@
   dnf:
     name: google-chrome-stable
     state: latest
+
+- name: Copy script to install Postman
+  copy:
+    src: files/install_postman.sh
+    dest: /tmp/install_postman.sh
+
+- name: Install Postman
+  script: /tmp/install_postman.sh
+
+# - name: Copy script to configure Postman Desktop Icon
+#   copy:
+#     src: files/config_postman.sh
+#     dest: /tmp/config_postman.sh
+#   become: no
+#   become_user: "{{ system_user }}"
+
+# - name: Install Postman Desktop Icon
+#   script: /tmp/install_postman.sh
+#   become: no
+#   become_user: "{{ system_user }}"
