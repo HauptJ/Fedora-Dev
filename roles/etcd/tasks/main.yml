@@ -1,0 +1,9 @@
+---
+
+- name: Copy ETCD install script
+  copy:
+    src: files/install_etcd.sh
+    dest: /tmp/install_etcd.sh
+
+- name: Execute ETCD install script
+  script: /tmp/install_etcd.sh

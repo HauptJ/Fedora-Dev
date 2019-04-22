@@ -62,6 +62,10 @@
       become: yes
       tags: java
 
+    - role: etcd
+      become: yes
+      tags: etcd
+
     - role: mac-wifi
       become: yes
       tags: mac-wifi
