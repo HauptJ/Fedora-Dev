@@ -6,4 +6,16 @@
     name: 
       - golang
     state: latest
+ 
+- name: Install Java 11 OpenJDK
+  dnf:
+    name:
+      - java-11-openjdk
+      - java-11-openjdk-devel
+    state: latest
 
+- name: Install Java Utilities
+  dnf:
+    name: 
+      - ant
+    state: latest
