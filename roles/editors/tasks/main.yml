@@ -28,3 +28,9 @@
       - atom
       - code
     state: latest
+
+
+- name: Install Eclipse IDE
+  dnf:
+    name: eclipse
+    state: latest
