@@ -3,6 +3,8 @@
 - name: Install Java 11 OpenJDK
   dnf:
     name:
+      - java-1.8.0-openjdk
+      - java-1.8.0-openjdk-devel
       - java-11-openjdk
       - java-11-openjdk-devel
     state: latest
@@ -11,9 +13,11 @@
   dnf:
     name: eclipse
     state: latest
+  when: gui == true
 
 - name: Install Java Utilities
   dnf:
     name: 
       - ant
+      - gradle
     state: latest
